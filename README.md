@@ -1,3 +1,8 @@
+[![My-GitHubActions-Basics](https://github.com/sergeivavilov/github-actions-part-1-basics/actions/workflows/my-basics.yml/badge.svg)](https://github.com/sergeivavilov/github-actions-part-1-basics/actions/workflows/my-basics.yml)
+
+
+
+
 # GitHub Actions Part-1 Basics
 
 
