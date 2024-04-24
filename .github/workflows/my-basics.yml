@@ -11,7 +11,7 @@ env:
 
 jobs:
   my_testing:
-    runs-on: ubuntu-latestsssss
+    runs-on: ubuntu-latestsdsdsd
     steps:
     - uses: actions/checkout@v2
     - name: Setup environment
@@ -23,7 +23,7 @@ jobs:
         ls -la
 
   my_deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latestsdsd
     needs: my_testing
     steps:
     - uses: actions/checkout@v2
