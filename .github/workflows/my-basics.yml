@@ -30,7 +30,7 @@ jobs:
         echo "Hello Message2"
         echo "Appication name: ${{ env.APPLICATION_NAME }}"
     
-    # - name: List current folder
+    - name: List current folder
       run : ls -la
    
     # - name: Git clone my repo
