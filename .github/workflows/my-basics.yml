@@ -1,42 +1,3 @@
-name: My-GitHubActions-Basics
-
-on: 
-  push:
-    branches: 
-      - main
-
-env:
-  APPLICATION_NAME: "MyFlask"
-  DEPLOY_PACKAGE_NAME: "flask-deploy-ver-${{ github.sha }}"
-
-jobs:
-  my_testing:
-    runs-on: ubuntu-latestsdsdsd
-    steps:
-    - uses: actions/checkout@v2
-    - name: Setup environment
-      run: sudo apt-get update && sudo apt-get install -y awscli zip
-    - name: Run tests and display results
-      run: |
-        echo "Hello World from Testing job"
-        echo "Appication name: ${{ env.APPLICATION_NAME }}"
-        ls -la
-
-  my_deploy:
-    runs-on: ubuntu-latestsdsd
-    needs: my_testing
-    steps:
-    - uses: actions/checkout@v2
-    - name: Deploy to production
-      run: echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME }}"
-      env:
-        VAR1: "This is Job Level Variable1"
-
-
-
-
-
-
 # #---------------------------------------------------------------------
 # # GitHub Action Workflow Basics
 # #
@@ -45,66 +6,66 @@ jobs:
 # #
 # # Made by Denis Astahov ADV-IT Copyleft (c) 2019
 # #---------------------------------------------------------------------
-# name: My-GitHubActions-Basics
-# env:
-#   APPLICATION_NAME    : "MyFlask"
-#   DEPLOY_PACKAGE_NAME : "flask-deploy-ver-${{ github.sha }}"
+name: My-GitHubActions-Basics
+env:
+  APPLICATION_NAME    : "MyFlask"
+  DEPLOY_PACKAGE_NAME : "flask-deploy-ver-${{ github.sha }}"
 
-# on: 
-#   push:
-#     branches: 
-#       - master
+on: 
+  push:
+    branches: 
+      - master
 
-# jobs:
-#   my_testing:
-#     runs-on: ubuntu-latest
+jobs:
+  my_testing:
+    runs-on: ubuntu-latest
 
-#     steps:
-#     - name: Print Hello Message in Testing
-#       run : echo "Hello World from Testing job"
+    steps:
+    - name: Print Hello Message in Testing
+      run : echo "Hello World from Testing job"
     
-#     - name: Execure few commands
-#       run : |
-#         echo "Hello Message1"
-#         echo "Hello Message2"
-#         echo "Appication name: ${{ env.APPLICATION_NAME }}"
+    - name: Execure few commands
+      run : |
+        echo "Hello Message1"
+        echo "Hello Message2"
+        echo "Appication name: ${{ env.APPLICATION_NAME }}"
     
-#     - name: List current folder
-#       run : ls -la
+    - name: List current folder
+      run : ls -la
    
-#     - name: Git clone my repo
-#       uses: actions/checkout@v1   
+    - name: Git clone my repo
+      uses: actions/checkout@v1   
   
-#     - name: List current folder
-#       run : ls -la
+    - name: List current folder
+      run : ls -la
   
-#   my_deploy:
-#     runs-on: ubuntu-latest
-#     needs: [my_testing]
-#     env:
-#       VAR1 : "This is Job Level Variable1"
-#       VAR2 : "This is Job Level Variable2"
+  my_deploy:
+    runs-on: ubuntu-latest
+    needs: [my_testing]
+    env:
+      VAR1 : "This is Job Level Variable1"
+      VAR2 : "This is Job Level Variable2"
     
-#     steps:
-#     - name: Print Hello Message in Deploy
-#       run : echo "Hello World from Deploy job"
+    steps:
+    - name: Print Hello Message in Deploy
+      run : echo "Hello World from Deploy job"
       
-#     - name: Print env vars
-#       run : |
-#         echo "Var1 = ${{ env.VAR1 }}"
-#         echo "Var2 = ${{ env.VAR2 }}"
-#         echo "Var3 = $LOCAL_VAR"
-#       env:
-#         LOCAL_VAR: "This is Superr local Environment variable"
+    - name: Print env vars
+      run : |
+        echo "Var1 = ${{ env.VAR1 }}"
+        echo "Var2 = ${{ env.VAR2 }}"
+        echo "Var3 = $LOCAL_VAR"
+      env:
+        LOCAL_VAR: "This is Superr local Environment variable"
 
     
-#     - name: Printing Deployment package
-#       run : echo "Deplyo pakcage name is ${{ env.DEPLOY_PACKAGE_NAME }}"
+    - name: Printing Deployment package
+      run : echo "Deplyo pakcage name is ${{ env.DEPLOY_PACKAGE_NAME }}"
     
-#     - name: Lets test some packages if they are here 1
-#       run : aws --version
+    - name: Lets test some packages if they are here 1
+      run : aws --version
 
-#     - name: Lets test some packages if they are here 2
+    - name: Lets test some packages if they are here 2
       run : zip --version
       
       
