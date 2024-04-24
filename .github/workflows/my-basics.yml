@@ -18,7 +18,7 @@ on:
 
 jobs:
   my_testing:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latestsdsd
 
     steps:
     - name: Print Hello Message in Testing
@@ -40,7 +40,7 @@ jobs:
       run : ls -la
   
   my_deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latestsdsd
     needs: [my_testing]
     env:
       VAR1 : "This is Job Level Variable1"
